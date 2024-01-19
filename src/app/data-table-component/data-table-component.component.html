@@ -1,0 +1,68 @@
+
+<div class="w-4/4  shadow-md p-10 ng-white shadow-blue-300/20 mx-36 my-10">
+
+<div class="flex justify-between items-center mb-4 mt-4 ">
+<input (keyup)="search(filter.value)" #filter type="text" placeholder="sEAARCH " class="w-full border p-2 rounded-lg">
+
+
+<select class="border p-2 rounded-lg">
+    <option value="">tetetet</option>
+</select>
+    </div>
+
+    <table class="w-full border-4">
+<thead>
+
+<tr>
+    <th class="p-3 text-left bg-gray-200">no </th>
+<th class="p-3 text-left bg-gray-200">
+    name
+</th>
+<th class="p-3 text-left bg-gray-200">
+    Position
+</th>
+<th class="p-3 text-left bg-gray-200">
+    Office
+</th>
+
+<th class="p-3 text-left bg-gray-200">
+    Age
+</th>
+<th class="p-3 text-left bg-gray-200">
+    Start Date 
+</th>
+<th class="p-3 text-left bg-gray-200">
+    Salary 
+</th>
+<th class="p-3 text-left bg-gray-200">
+    Action
+</th>
+</tr>
+
+
+
+    </thead>
+<tbody>
+<tr class="border-2" *ngFor="let employee of visibleData(); let i=index">
+<td class="p-3 border-2">{{i +1}}</td>
+<td class="p-3 border-2">{{employee.name}} </td>
+<td class="p-3 border-2">{{employee.position}} </td>
+<td class="p-3 border-2">{{employee.office}}</td>
+<td class="p-3 border-2">{{employee.age}}</td>
+<td class="p-3 border-2">{{employee.start_date}} </td>
+<td class="p-3 border-2">{{employee.salary}} </td>
+
+
+    </tr>
+
+    </tbody>
+        </table>
+
+<div class="mt-4 flex items-center justify-center">
+<button (click)='previousPage()' class="text-green-900 border-4 py-2 px-4 rounded-l-lg cursor-pointer mr-5 ">Previous </button>
+<button  (click)="changePage(i+1)"  [class.bg-blue-400]="i+1 ==currentPage" *ngFor="let pageNumber of pageNumber(); let i =index"  class="py-2 px-4 cursor-pointer  text-black ">{{i+1}}</button>
+
+<button (click)="nextPage()" class="text-green-900 border-4 py-2 px-4 rounded-l-lg cursor-pointer mr-5 ">Next</button>
+    </div>
+
+    </div>
